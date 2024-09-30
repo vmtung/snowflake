@@ -1,11 +1,9 @@
-// @flow
-
 import React from 'react'
 
 type Props = {
-  increaseFocusedMilestoneFn: () => void,
-  selectNextTrackFn: () => void,
-  decreaseFocusedMilestoneFn: () => void,
+  increaseFocusedMilestoneFn: () => void
+  selectNextTrackFn: () => void
+  decreaseFocusedMilestoneFn: () => void
   selectPrevTrackFn: () => void
 }
 
@@ -15,7 +13,7 @@ class KeyboardListener extends React.Component<Props> {
   }
 
   handleKeyDown(e: KeyboardEvent) {
-    switch(e.code) {
+    switch (e.code) {
       case 'ArrowUp':
         this.props.increaseFocusedMilestoneFn()
         e.preventDefault()
@@ -38,7 +36,6 @@ class KeyboardListener extends React.Component<Props> {
   render() {
     return null
   }
-
 }
 
 export default KeyboardListener

@@ -1,6 +1,11 @@
 // @flow
 
-import { pointsToLevels, milestoneToPoints, trackIds, totalPointsFromMilestoneMap } from '../constants'
+import {
+  pointsToLevels,
+  milestoneToPoints,
+  trackIds,
+  totalPointsFromMilestoneMap,
+} from '../constants'
 import type { MilestoneMap } from '../constants'
 import React from 'react'
 
@@ -19,7 +24,7 @@ class PointSummaries extends React.Component<Props> {
       pointsForCurrentLevel--
     }
 
-    let pointsToNextLevel = 1
+    let pointsToNextLevel: string | number = 1
     while (!(nextLevel = pointsToLevels[totalPoints + pointsToNextLevel])) {
       pointsToNextLevel++
       if (pointsToNextLevel > 135) {
@@ -31,16 +36,16 @@ class PointSummaries extends React.Component<Props> {
     const blocks = [
       {
         label: 'Current level',
-        value: currentLevel
+        value: currentLevel,
       },
       {
         label: 'Total points',
-        value: totalPoints
+        value: totalPoints,
       },
       {
         label: 'Points to next level',
-        value: pointsToNextLevel
-      }
+        value: pointsToNextLevel,
+      },
     ]
 
     return (
@@ -69,18 +74,18 @@ class PointSummaries extends React.Component<Props> {
         `}</style>
         <tbody>
           <tr>
-          {blocks.map(({label}, i) => (
-            <th key={i} className="point-summary-label">
-              {label}
-            </th>
-          ))}
+            {blocks.map(({ label }, i) => (
+              <th key={i} className="point-summary-label">
+                {label}
+              </th>
+            ))}
           </tr>
           <tr>
-          {blocks.map(({value}, i) => (
-            <td key={i} className="point-summary-value">
-              {value}
-            </td>
-          ))}
+            {blocks.map(({ value }, i) => (
+              <td key={i} className="point-summary-value">
+                {value}
+              </td>
+            ))}
           </tr>
         </tbody>
       </table>
